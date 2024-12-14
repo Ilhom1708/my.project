@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">BIS web dizayn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo" data-i18n="logo">WEB BOZOROV</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav.home">Bosh Sahifa</a></li>
+                <li><a href="#services" data-i18n="nav.services">Xizmatlar</a></li>
+                <li><a href="#about" data-i18n="nav.about">Biz Haqimizda</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Aloqa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BIS -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="hero.title">Yangi Biznesingiz Uchun Zamonaviy Sayt</h1>
+            <p data-i18n="hero.description">O'zbekiston bo'ylab eng yaxshi dizayn va texnologiyalarni taqdim etamiz.</p>
+            <a href="#services" class="btn" data-i18n="hero.button">Xizmatlarimizni Ko'rish</a>
+        </div>
+    </section>
+
+    <!-- Xizmatlar -->
+    <section id="services" class="services">
+        <div class="service">
+            <h3 data-i18n="services.design.title">Dizayn Xizmatlari</h3>
+            <p data-i18n="services.design.description">Sayt dizayni, logo va grafik dizaynlar yaratish.</p>
+        </div>
+        <div class="service">
+            <h3 data-i18n="services.dev.title">Veb Dasturlash Xizmatlari</h3>
+            <p data-i18n="services.dev.description">Saytlar uchun turli turdagi dizayn ishlab chiqish</p>
+        </div>
+        <div class="service">
+            <h3 data-i18n="services.ad.title">REKLAMA</h3>
+            <p data-i18n="services.ad.description">Mahsulotlaringiz reklamasi ushbu bo'limda bo'lishi mumkun 😊.</p>
+        </div>
+    </section>
+    </body>
+    <section id="about" class="about">
+        <h2>Biz Haqimizda</h2>
+        <p>Men Bozorov Ilhom Qarshi davlat universiteti Matematika va informatika guruhi talabasiman.Havaskarona tarzda ushbu saytni yaratdim va bu sayt sizlarga yoqadi degan umiddaman     </p>
+    </section>
+    
+
+    <!-- Til tanlash tugmalari -->
+    <div class="language-selector">
+        <button onclick="changeLanguage('uz')">O'zbekcha</button>
+        <button onclick="changeLanguage('en')">English</button>
+    </div>
+
+    <!-- Script -->
+    <script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+    <script>
+        i18next.init({
+            lng: 'uz', // Boshlang'ich til
+            resources: {
+                uz: {
+                    translation: {
+                        "title": "BIS web dizayn",
+                        "logo": "WEB BOZOROV",
+                        "nav.home": "Bosh Sahifa",
+                        "nav.services": "Xizmatlar",
+                        "nav.about": "Biz Haqimizda",
+                        "nav.contact": "Aloqa",
+                        "hero.title": "Yangi Biznesingiz Uchun Zamonaviy Sayt",
+                        "hero.description": "O'zbekiston bo'ylab eng yaxshi dizayn va texnologiyalarni taqdim etamiz.",
+                        "hero.button": "Xizmatlarimizni Ko'rish",
+                        "services.design.title": "Dizayn Xizmatlari",
+                        "services.design.description": "Sayt dizayni, logo va grafik dizaynlar yaratish.",
+                        "services.dev.title": "Veb Dasturlash Xizmatlari",
+                        "services.dev.description": "Saytlar uchun turli turdagi dizayn ishlab chiqish.",
+                        "services.ad.title": "REKLAMA",
+                        "services.ad.description": "Mahsulotlaringiz reklamasi ushbu bo'limda bo'lishi mumkun 😊."
+                    }
+                },
+                en: {
+                    translation: {
+                        "title": "BIS Web Design",
+                        "logo": "WEB BOZOROV",
+                        "nav.home": "Home",
+                        "nav.services": "Services",
+                        "nav.about": "About Us",
+                        "nav.contact": "Contact",
+                        "hero.title": "A Modern Website for Your Business",
+                        "hero.description": "We provide the best design and technology across Uzbekistan.",
+                        "hero.button": "View Our Services",
+                        "services.design.title": "Design Services",
+                        "services.design.description": "Creating website designs, logos, and graphic designs.",
+                        "services.dev.title": "Web Development Services",
+                        "services.dev.description": "Developing various types of designs for websites.",
+                        "services.ad.title": "Advertisement",
+                        "services.ad.description": "Your product advertisement can be placed here 😊."
+                    }
+                }
+            }
+        }, function(err, t) {
+            updateContent();
+        });
+
+        function updateContent() {
+            document.querySelectorAll("[data-i18n]").forEach(function(element) {
+                const key = element.getAttribute("data-i18n");
+                element.textContent = i18next.t(key);
+            });
+        }
+
+        function changeLanguage(lang) {
+            i18next.changeLanguage(lang, updateContent);
+        }
+    </script>
+</body>
+</html>
+<section id="chat" class="chat">
+    <h2>Saytning chati</h2>
+    <div id="chatWindow">
+        <!-- Xabarlar shu yerda chiqadi -->
+    </div>
+    <form id="chatForm">
+        <input type="text" id="chatMessage" placeholder="Xabaringizni yozing..." required>
+        <button type="submit" class="btn">Yuborish</button>
+    </form>
+</section>
+</body>
+</html>
+<section id="subscribe" class="subscribe">
+    <h2>Obuna bo'ling</h2>
+    <p>Bizning yangiliklardan birinchilardan bo'lib xabardor bo'ling!</p>
+    <form id="subscribeForm">
+        <input type="email" id="subscriberEmail" placeholder="Emailingizni kiriting" required>
+        <button type="submit" class="btn">Obuna bo'lish</button>
+    </form>
+    <ul id="subscribersList">
+        <!-- Obunachilar ro'yxati shu yerda chiqadi -->
+    </ul>
+</section>
+
